@@ -74,26 +74,27 @@ var myGameArea = {
     }
     this.newPos = function() {
         this.x += this.speedX;
-        this.y += this.speedY;        
+        this.y += this.speedY;
+        this.hitLeft()
+        this.hitRight()    
     }
-}
-
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.x = x;
-    this.y = y;   
-    this.update = function(){ 
-    ctx = myGameArea.context;
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+this. hitLeft = function() {
+    let rockleft = 1350 - this.width
+    if(this.x > rockleft){
+      this.x = rockleft
     }
-    this.newPos = function() {
-    this.x += this.speedX;
-    this.y += this.speedY;
   }
 
+this.hitRight = function() {
+    let rockright = this.width - this.width;
+    if (this.x < rockright) {
+      this.x = rockright;
+    }
+  }
+}
+
+  
+  
 
 function updateGameArea() {
   myGameArea.clear();
@@ -102,8 +103,8 @@ function updateGameArea() {
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
 
-  if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.speedX = -5; }
-  if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.speedX = 5; }
+  if (myGameArea.keys && myGameArea.keys[65]) {myGamePiece.speedX = -10; }
+  if (myGameArea.keys && myGameArea.keys[68]) {myGamePiece.speedX = 10; }
 
 
   myGamePiece.newPos();
