@@ -4,25 +4,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
-    background-image: url("Background siang.png");
+    background-image: url("Background malam.png");
 }
 
 body {
     background-color: black;
 }
 </style>
-    <title>percobaan</title>
+    <title>Game</title>
 </head>
 <body onload="startGame()">
 <script>
 
 var myGamePiece;
-var nantihapus
 
 function startGame() {
   myGamePiece = new component(65, -181, "Karakterfix.png", 20, 545, "image");
     myGameArea.start();
-    myObstacle = new component(140, -150, "musuh 1.png", 1350, 545, "image");
+    myEnemy = new component(140, -150, "musuh 1.png", 1350, 545, "image");
 }
 
 var myGameArea = {
@@ -98,8 +97,8 @@ this.hitRight = function() {
 
 function updateGameArea() {
   myGameArea.clear();
-  myObstacle.x += -2;
-  myObstacle.update();
+  myEnemy.x += 0;
+  myEnemy.update();
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
 
